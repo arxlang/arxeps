@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [3.13]
     concurrency:
       group: ci-${{ github.ref }}
       cancel-in-progress: true
@@ -23,20 +23,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        activate-environment: arx-design
+        activate-environment: arxeps
         channels: nodefaults,conda-forge
         environment-file: conda/dev.yaml
 
     - name: Build the book
-      run: make docs
+      run: makim docs.build
 
     - name: GitHub Pages action
       if: ${{ github.event_name == 'push' }}
       uses: peaceiris/actions-gh-pages@v3.5.9
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
+        publish_dir: ./build

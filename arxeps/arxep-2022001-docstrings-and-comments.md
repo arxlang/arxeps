@@ -112,7 +112,6 @@ Multine comments:
 * `=begin <anyname>` and `=end <anyname>`: Perl
 * `=begin` and `=end`: Ruby
 * `=<anyname>` and `=cut`: Perl
-* ```#`{{``` and `}}`: Raku
 * `<#` and `#>`: PowerShell
 * `"""` and `"""`: Python
 * `'''` and `'''`: Python
@@ -198,7 +197,7 @@ x = 1
 It be used in the middle of a line of code, For example:
 
 ```
-function sum(a: int ```the 1st arg``` b: int ```2nd arg```) -> int:
+fn sum(a: int ```the 1st arg``` b: int ```2nd arg```) -> int:
   return a + b
 ```
 
@@ -229,7 +228,7 @@ and its structure should follow the
 For example:
 
 ````yaml
-function sum(a: int, b: int) -> int:
+fn sum(a: int, b: int) -> int:
   ```
   title: Sum two integer numbers `a` and `b`
 
@@ -261,7 +260,7 @@ In the following example, it is presented a full example of docstrings for a fun
 
 ````
 
-function sum(a: int, b: int) -> int:
+fn sum(a: int, b: int) -> int:
   ```
   title: Sum `a` and `b`
 
@@ -317,7 +316,7 @@ The docstrings should be required at compile-time, and the attribute `title` is 
 defined inline inside the function signature.
 
 ````
-function sum(a: int ```the 1st arg``` b: int ```2nd arg``` -> int:
+fn sum(a: int ```the 1st arg``` b: int ```2nd arg``` -> int:
   ```
   title: Sum two integer numbers.
   ```

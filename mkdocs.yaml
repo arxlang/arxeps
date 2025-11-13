@@ -1,0 +1,142 @@
+site_name: Arx Enhancement Proposals
+site_url: https://arxeps.arxlang.org
+repo_url: https://github.com/arxlang/arxeps
+docs_dir: ./arxeps
+site_dir: ./build
+watch:
+  - ./arxeps
+
+nav:
+  - index.md
+  - ArxEPs: toc.md
+
+theme:
+  name: material
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+    - navigation.indexes
+    - navigation.instant
+    - search.highlight
+    - search.share
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+  logo: /images/arx.png
+  favicon: ./images/favicon.ico
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: white
+      accent: lime
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: white
+      accent: lime
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+  - macros
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          paths: [src]
+
+          import:
+            - https://docs.python.org/3/objects.inv
+          options:
+            docstring_options:
+              ignore_init_summary: true
+            docstring_section_style: list
+            docstring_style: numpy
+            filters: ["!^_"]
+            heading_level: 1
+            inherited_members: true
+            merge_init_into_class: true
+            separate_signature: true
+            # show_category_heading: true
+            # show_modules: true
+            show_root_full_path: false
+            show_root_heading: true
+            # show_root_toc_entry: true
+            show_signature_annotations: true
+            show_source: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            signature_crossrefs: true
+            summary: true
+  - mkdocs-jupyter:
+      execute: false
+      ignore:
+        - "*.py"
+        - ".ipynb_checkpoints/*"
+      include_source: true
+      include_requirejs: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/static/icons
+  - pymdownx.details
+  - pymdownx.highlight:
+      pygments_lang_class: true
+  - pymdownx.inlinehilite:
+      style_plain_text: python
+  - pymdownx.magiclink:
+      provider: github
+      repo_url_shortener: true
+  - pymdownx.saneheaders
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  project_name: "Arx Enhancement Proposals"
+  team:
+    - name: "Active maintainers"
+      members:
+        - xmnlab
+    - name: "Former maintainers"
+      members:
+        - xmnlab
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/xmnlab
+    - icon: fontawesome/brands/github
+      link: https://github.com/arxlang/irx
+  support_levels:
+    supported:
+      icon: :material-check-decagram:{ .verified }
+      description: Tested in CI. If this doesn't work for you, please [file an issue](https://github.com/arxlang/irx/issues/new).
+    bug:
+      icon: :material-bug:{ .bug }
+      description: Should work but doesn't because upstream is broken. Supported on a best-effort basis.
+    unsupported:
+      icon: :material-cancel:{ .cancel }
+      description: Unlikely to ever be supported or no upstream support.
+
+copyright: "Copyright &copy; 2025, Arx Team"
