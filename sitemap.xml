@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://arxeps.arxlang.org/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://arxeps.arxlang.org/__template__/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://arxeps.arxlang.org/arxep-2021000-arxep-template/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://arxeps.arxlang.org/arxep-2022001-docstrings-and-comments/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://arxeps.arxlang.org/toc/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+</urlset>
