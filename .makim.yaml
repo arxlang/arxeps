@@ -1,0 +1,39 @@
+groups:
+  clean:
+    tasks:
+      tmp:
+        help: remove build artifacts, compiled files, and cache
+        backend: bash
+        run: |
+          rm -fr build/
+          rm -fr dist/
+          rm -fr .eggs/
+          find . -name '*.egg-info' -exec rm -fr {} +
+          find . -name '*.egg' -exec rm -f {} +
+          find . -name '*.pyc' -exec rm -f {} +
+          find . -name '__pycache__' -exec rm -fr {} +
+          find . -name '*.pyo' -exec rm -f {} +
+          find . -name '*~' -exec rm -f {} +
+          rm -f .coverage
+          rm -fr htmlcov/
+          rm -fr .pytest_cache
+
+  tests:
+    tasks:
+      linter:
+        help: run linter tools
+        run: |
+          pre-commit install
+          pre-commit run --all-files
+
+  docs:
+    tasks:
+      build:
+        help: build documentation
+        run: |
+          mkdocs build --config-file mkdocs.yaml
+          echo "arxeps.arxlang.org" > ./build/CNAME
+
+      preview:
+        help: preview documentation page locally
+        run: mkdocs serve --watch arxeps/ --config-file mkdocs.yaml
